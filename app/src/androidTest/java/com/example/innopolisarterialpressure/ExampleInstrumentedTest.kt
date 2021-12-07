@@ -3,8 +3,7 @@ package com.example.innopolisarterialpressure
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -43,5 +42,12 @@ class ExampleInstrumentedTest {
     fun onScreenInputTest() {
         onView(withId(R.id.apDetailsCreateButton)).perform(click())
         onView(withId(R.id.apDetailsMorningText)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun onAddedData() {
+        onView(withId(R.id.arterialPressureList)).perform(click())
+        onView(withId(R.id.apDetailsMorningData)).check(matches(isDisplayed()))
+        onView(withId(R.id.apDetailsEveningData)).check(matches(isDisplayed()))
     }
 }
